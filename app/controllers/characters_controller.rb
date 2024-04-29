@@ -5,9 +5,9 @@ class CharactersController < ApplicationController
     query = Character
             .includes(:species)
             .includes(person_jobs: { job: :company })
-
     if params[:column].present?
-      @characters = query.order("#{params[:column]}").all
+      # @characters = query.order("#{params[:column]}").all
+      @characters = query.order("#{params[:column]} #{params[:direction]}").all
     else
       @characters = query.all
     end

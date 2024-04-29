@@ -13,18 +13,23 @@
           <tr class="table-primary">
             <th scope="col">
               <%= sort_link(column: "id", label: "Id") %>
+              <%= sort_arrow_for("id") %>
             </th>
             <th scope="col">
               <%= sort_link(column: "first_name", label: "First Name") %>
+              <%= sort_arrow_for("first_name") %>
             </th>
             <th scope="col">
               <%= sort_link(column: "last_name", label: "Last Name") %>
+              <%= sort_arrow_for("last_name") %>
             </th>
             <th scope="col">
               <%= sort_link(column: "gender", label: "Gender") %>
+              <%= sort_arrow_for("gender") %>
             </th>
             <th scope="col">
               <%= sort_link(column: "species.species_name", label: "Species") %>
+              <%= sort_arrow_for("species.species_name") %>
             </th>
             <th scope="col">
               Company-Job

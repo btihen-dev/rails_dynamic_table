@@ -7,6 +7,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- adds morph-dom to rails and fixes scroll reset -->
+    <meta name="turbo-refresh-method" content="morph">
+    <meta name="turbo-refresh-scroll" content="preserve">
+    <%= turbo_refreshes_with method: :morph, scroll: :preserve  %>
     <%= yield :head %>
 
     <link rel="manifest" href="/manifest.json">
