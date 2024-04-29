@@ -2,9 +2,15 @@ class CharactersController < ApplicationController
   before_action :set_character, only: %i[ show edit update destroy ]
 
   def index
-    @characters = Character
-                  .includes(species: [], person_jobs: { job: :company })
-                  .all
+    query = Character
+            .includes(:species)
+            .includes(person_jobs: { job: :company })
+
+    if params[:column].present?
+      @characters = query.order("#{params[:column]}").all
+    else
+      @characters = query.all
+    end
   end
 
   def show
