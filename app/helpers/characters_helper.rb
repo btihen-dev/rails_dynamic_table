@@ -23,12 +23,13 @@ module CharactersHelper
 
   def sort_arrow
     case params[:direction]
-    when 'asc' then tag.i(class: "bi bi-arrow-up-short")
-    when 'desc' then tag.i(class: "bi bi-arrow-down-short")
+    when 'asc' then tag.i(class: "bi bi-arrow-up")
+    when 'desc' then tag.i(class: "bi bi-arrow-down")
+    else tag.i(class: "bi bi-arrow-down-up")
     end
   end
 
   def sort_arrow_for(column)
-    sort_arrow if params[:column] == column
+    params[:column] == column ? sort_arrow : tag.i(class: "bi bi-arrow-down-up")
   end
 end
